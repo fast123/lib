@@ -1,0 +1,486 @@
+/* Автомобиль детально */
+.tradein-detail {
+    font: normal 13px/16px 'Open Sans', Arial, Helvetica, sans-serif;
+    position: relative;
+    margin-bottom: 50px;
+}
+.tradein-detail-title {
+    font-size: 24px;
+}
+
+.tradein-detail-title span {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.tradein-detail-price {
+    font-size: 14px;
+    color: #f7b615;
+    font-family: Play, serif;
+}
+
+.tradein-detail-price span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.tradein-detail-slider--mobile {
+    margin-top: 18px;
+}
+
+.tradein-detail-slider--mobile * {
+    outline: none;
+}
+
+.tradein-detail-slider--mobile .slick-prev,
+.tradein-detail-slider--mobile .slick-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    height: 32px;
+    width: 32px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    z-index: 999;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+.tradein-detail-slider--mobile .slick-prev {
+    left: 0;
+}
+
+.tradein-detail-slider--mobile .slick-next {
+    right: 0;
+}
+
+.tradein-detail-slider--mobile .slick-arrow:before {
+    content: '\f104';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    line-height: 32px;
+    font-size: 20px;
+    font-family: FontAwesome, sans-serif;
+    display: inline-block;
+    color: #fff;
+    z-index: 999;
+    text-indent: 0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+}
+
+.tradein-detail-slider--mobile .slick-next:before {
+    content: '\f105';
+}
+
+/* Таблица параметров */
+.tradein-detail table {
+    border: none;
+    width: 100%;
+    max-width: 320px;
+    background: none;
+}
+
+.tradein-detail table tr {
+    height: 55px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.tradein-detail table tr td {
+    padding: 10px 0;
+    border: none;
+    background: none;
+}
+
+.tradein-detail table tr td:first-child {
+    width: 180px;
+}
+
+table.tradein-detail-options-table tr td:first-child {
+    padding: 10px 20px 10px 0;
+    width: auto;
+}
+
+.tradein-detal-action-buttons {
+    margin-top: 20px;
+}
+
+.tradein-detal-action-buttons .btn {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    position: relative;
+}
+
+.tradein-detal-action-buttons .btn:before {
+    content: '\f054';
+    font-family: FontAwesome, sans-serif;
+    color: #2b2a2a;
+    font-size: 8px;
+    line-height: 34px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.btn2 {
+    background: #c3eaaa !important;
+}
+.btn2:hover {
+    background: #d6feb8 !important;
+}
+.btn2:active {
+    background: #c3eaaa !important;
+}
+
+.tradein-detail-characteristics table {
+    margin-bottom: 0;
+}
+
+.tradein-detail-description, .tradein-detail-complectation {
+    margin: 30px 0;
+}
+
+.tradein-detail-complectation .tradein-detail-block-toggle > ul {
+    margin-top: 10px;
+}
+
+.tradein-detail-block-title {
+    border-bottom: 1px solid #575757;
+    position: relative;
+    cursor: pointer;
+}
+
+.tradein-detail-block-title:before {
+    content: '\f078';
+    font-family: FontAwesome, sans-serif;
+    position: absolute;
+    top: 4px;
+    right: 0;
+    font-size: 10px;
+}
+
+.tradein-detail-complectation ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Наши услуги */
+.our-services-icons {
+    margin-bottom: 30px;
+}
+
+.our-services-icons .our-services-icon {
+    display: inline-block;
+    width: 49%;
+    max-width: 150px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 60px 20px 0;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    color: #2b2a2a;
+}
+
+.our-services-icons .our-services-icon:before {
+    content: '.';
+    font-size: 0px;
+    line-height: 0px;
+    position: absolute;
+    top: 13px;
+    left: 33px;
+    width: 60px;
+    height: 50px;
+    background: url("/bitrix/templates/new-tradein-uservice/css/../img/sprite.png") -160px 0 no-repeat;
+    background-size: 220.5px 624px;
+}
+
+.our-services-icons .our-services-icon-2:before {
+    background-position: -160px -61px;
+}
+
+.our-services-icons .our-services-icon-3:before {
+    background-position: -160px -131px;
+}
+
+.our-services-icons .our-services-icon-4:before {
+    background-position: -160px -199px;
+}
+
+.our-services-icons .our-services-icon-5:before {
+    background-position: -160px -267px;
+}
+
+
+
+/* Автомобиль детально */
+.tradein-detail-title {
+    font-size: 30px;
+    float: left;
+    max-width: 510px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tradein-detail-title span {
+    font-size: 18px;
+}
+
+.tradein-detail-price {
+    float: right;
+}
+
+.tradein-detail-price {
+    font-size: 30px;
+    line-height: 49px;
+}
+
+.tradein-detail-price span {
+    font-size: 36px;
+}
+
+/* Слайдер */
+.tradein-detail-slider {
+    width: 450px;
+    float: left;
+}
+
+.tradein-detail-slider-for {
+    margin-top: 0px;
+}
+
+.tradein-detail-slider-for img {
+    width: 366px;
+    height: auto !important;
+}
+
+.tradein-detail-slider * {
+    outline: none;
+}
+
+.tradein-detail-slider-nav {
+    padding: 0 20px;
+}
+
+.tradein-detail-slider-nav img {
+    #width: 100px;
+}
+
+.tradein-detail-slider-nav {
+    position: relative;
+}
+
+.tradein-detail-slider-nav .slick-prev, .tradein-detail-slider-nav .slick-next {
+    position: absolute;
+    top: 0;
+    height: 57px;
+    width: 21px;
+    background: #f6f6f6;
+    text-indent: -9999px;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: none;
+}
+
+.tradein-detail-slider-nav .slick-prev {
+    left: 0;
+}
+
+.tradein-detail-slider-nav .slick-next {
+    right: 0;
+}
+
+.tradein-detail-slider-nav img {
+    height: 57px !important;
+}
+
+.tradein-detail-slider-nav .slick-arrow:before {
+    content: "\f104";
+    font-family: "FontAwesome", sans-serif;
+    font-size: 13px;
+    line-height: 57px;
+    color: #353434;
+    width: 21px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-indent: 0;
+}
+
+.tradein-detail-slider-nav .slick-next:before {
+    content: "\f105";
+}
+
+/* Правая часть от картинки */
+.tradein-detail-right-part {
+    float: right;
+    width: 335px;
+}
+
+.tradein-detail table,
+.tradein-detal-action-buttons .btn {
+    max-width: 345px;
+}
+.tradein-detal-action-buttons {
+    margin-top: 0;
+}
+.tradein-detail-options-table-cnt {
+    height: auto;
+}
+
+/* Опции */
+.tradein-detail-block-title {
+    margin-top: 40px;
+    cursor: default;
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.tradein-detail-block-title:before {
+    content: none;
+}
+
+.tradein-detail-characteristics > table {
+    float: left;
+    max-width: 250px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.tradein-detail-characteristics > table.first-table {
+    margin-left: 0px;
+}
+
+.tradein-detail table tr td {
+    width: 70px;
+}
+
+.tradein-detail table tr td:first-child {
+    width: 120px;
+}
+
+table.tradein-detail-options-table tr td:first-child {
+    width: 70px;
+}
+
+
+.tradein-detail-block table tr td {
+    padding-left: 10px;
+    font-weight: bold;
+    height: 32px;
+}
+
+.tradein-detail-block table tr td:first-child {
+    padding-left: 0px;
+    font-weight: normal;
+}
+
+.tradein-detail-block-toggle {
+    margin-top: 20px;
+}
+.tradein-detail-complectation .tradein-detail-block-toggle {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.tradein-detail-complectation .tradein-detail-block-toggle > ul {
+    width: 30%;
+}
+
+.tradein-detail-complectation .tradein-detail-block-toggle > ul > li {
+    margin: 10px 0;
+}
+
+.tradein-detail-complectation {
+    padding-bottom: 10px;
+}
+
+.tradein-detail-icons {
+    padding: 20px 5px;
+}
+
+.tradein-detail-icons .tradein-detail-icon {
+    width: 222px;
+    float: left;
+    margin-left: 20px;
+}
+
+.tradein-detail-icons .tradein-detail-icon:first-child {
+    margin-left: 0;
+}
+
+.tradein-detail-icon-image {
+    min-height: 90px;
+    text-align: center;
+}
+
+.bordered {
+    padding: 10px 15px;
+    outline: 1px solid #e8e8e8;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+}
+
+.bordered-margin {
+    margin: 40px 0 30px;
+}
+
+.tradein-detail-icon-text {
+    margin-bottom: 16px;
+}
+@media (max-width: 1100px) {
+    .tradein-detail-slider {
+        width: 400px;
+    }
+}
+@media (max-width: 1050px) {
+    .tradein-detail-slider {
+        width: 350px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .tradein-detail-slider {
+        width: 100%;
+        float: none;
+    }
+    .tradein-detail-right-part {
+        float: none;
+        width: 100%;
+    }
+    .tradein-detail-right-part table {
+        max-width: none;
+    }
+    .tradein-detail-characteristics > table {
+        float: none;
+        max-width: none;
+    }
+    .tradein-detail table tr td {
+        width: 40%;
+        padding-left: 0;
+    }
+}
+@media (max-width: 600px) {
+    .tradein-detail-complectation .tradein-detail-block-toggle > ul {
+        margin: 0;
+        width: 100%;
+    }
+}
+@media (max-width: 400px) {
+    .tradein-detail-title {
+        font-size: 24px;
+    }
+}

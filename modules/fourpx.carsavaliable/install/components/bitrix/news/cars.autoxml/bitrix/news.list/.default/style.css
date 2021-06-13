@@ -1,0 +1,155 @@
+
+#tradein-filter {
+    margin-bottom:30px;
+}
+.filter_block {
+    margin-left: 30px;
+    text-align: left;
+}
+.filter_type,
+.filter_type li {
+    display:inline-block;
+}
+.filter_type li {
+    margin-left:15px;
+    list-style-type:none;
+    position:relative;
+}
+li.active-sort a {
+    text-decoration: none;
+    line-height: 22px;
+    display: inline-block;
+    padding: 0 14px 0 7px;
+}
+li.active-sort a,
+.pagination li.-active a {
+    color: #000;
+    background: #fab816;
+}
+.active-sort-o:before,
+.active-sort-re_o:before {
+    font-family: "FontAwesome", sans-serif;
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    font-size: 9px;
+}
+.active-sort-o:before {
+    content: '\f0dd';
+}
+.active-sort-re_o:before {
+    content: '\f0de';
+    top: 8.5px;
+}
+
+
+/* Список автомобилей */
+.cars-list {
+    font: normal 13px/16px 'Open Sans', Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0 0 50px 0;
+    text-align: center;
+}
+
+.cars-list a, .cars-list a:visited,  .cars-list a:hover{
+    color: #000;
+}
+.cars-list .cars-list-box {
+    padding: 0 15px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cars-list .list__item {
+    width: 31%;
+    margin-top: 25px;
+    border: 1px solid #f1f2f2;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+}
+.cars-list .list__item h5 {
+    font-size: 16px;
+    font-weight:bold;
+    padding-bottom:0;
+}
+.cars-list .list__title {
+    display: inline-table;
+    text-align: center;
+    line-height: 20px;
+    margin: 0;
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.cars-list .list__item .list__title > * {
+    text-decoration: none !important;
+    display: table-cell;
+    height: 43px;
+    vertical-align: middle;
+}
+
+.cars-list .list__item > a {
+    text-decoration: none !important;
+    display: inline-block;
+}
+
+.cars-list .list__item .car-image {
+    width: 100%;
+}
+
+.cars-list .list__link {
+    display:block;
+    position: relative;
+}
+
+.cars-list .list__description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, .35);
+    text-decoration: none;
+    font: 13px Opel, Verdana, Geneva, sans-serif;
+    line-height: 30px;
+}
+
+.cars-list .list__price {
+    line-height: 40px;
+    font-size: 14px;
+    font-family: Opel, Verdana, Geneva, sans-serif;
+    font-weight: 700;
+}
+
+.cars-list .list__price .old-price {
+    text-decoration: line-through !important;
+}
+
+.small-price-tag .current-price {
+    font-size: 10px;
+}
+
+.small-price-tag .cert_programm {
+    margin-right: 3px;
+}
+
+.small-price-tag .old-price {
+    font-size: 10px;
+    margin-right: 3px;
+}
+
+@media (max-width: 1060px) {
+    .cars-list .list__description {
+        line-height: 20px;
+    }
+}
+@media (max-width: 700px) {
+    .cars-list .list__item {
+        width: 47%;
+    }
+}
+@media (max-width: 500px) {
+    .cars-list .list__item {
+        width: 100%;
+    }
+}

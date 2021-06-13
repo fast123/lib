@@ -1,0 +1,22 @@
+.without-header {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.aside {
+    width: 370px;
+    padding-right: 15px;
+}
+
+.main-column {
+    width: 100%;
+}
+@media (max-width: 1000px) {
+    .without-header {
+        flex-wrap: wrap;
+    }
+    .aside {
+        width: 100%;
+        padding-left: 15px;
+    }
+}

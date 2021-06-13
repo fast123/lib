@@ -1,0 +1,124 @@
+.abandoned-basket {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 0;
+
+    overflow: auto;
+}
+
+.abandoned-basket__inner {
+    position: relative;
+
+    width: 600px;
+    max-width: 100%;
+
+    background-color: #FFF;
+    -webkit-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+
+    padding: 30px;
+}
+.abandoned-basket__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    color: #AAA;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.abandoned-basket__close:hover {
+    color: #333;
+}
+
+.abandoned-basket__title {
+    text-align: center;
+}
+
+.abandoned-basket__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+
+    border-bottom: 1px solid #CCC;
+    border-left: 2px solid #FFFFFF;
+}
+.abandoned-basket__item:hover {
+    border-left: 2px solid #CCC;
+}
+
+.abandoned-basket__item-photo {
+    width: 100px;
+    min-width: 100px;
+}
+.abandoned-basket__item-photo-img {
+    width: 100px;
+    min-width: 100px;
+}
+
+.abandoned-basket__item-name {
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.abandoned-basket__item-price {
+    width: 100px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.abandoned-basket__buttons {
+    text-align: center;
+    padding: 30px 0 0;
+}
+
+.vel-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 0 20px;
+    height: 50px;
+    font-size: 18px;
+    /*cursor: pointer;*/
+}
+.vel-button__inner {
+}
+.vel-button_red {
+
+    border-width: 2px;
+    border-style: solid;
+    border-top-color: #ED1C24;
+    border-right-color: #E11E24;
+    border-bottom-color: #9E1318;
+    border-left-color: #ED1C24;
+    border-radius: 6px;
+    background-color: #ED1C24;
+
+    color: #FFFFFF;
+}
+.vel-button_red:hover {
+    background-color: #D91A21;
+}
+.vel-button_skewed {
+    transform: skewX(-10deg);
+    border-radius: 6px;
+}
+.vel-button_skewed .vel-button__inner {
+    transform: skew(10deg);
+}
