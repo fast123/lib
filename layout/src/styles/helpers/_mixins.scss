@@ -1,0 +1,135 @@
+@mixin flex-item($items, $mr) {
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-right: #{$mr};
+    margin-bottom: #{$mr};
+    flex-basis: calc(100% / #{$items} - (#{$mr} * (#{$items} - 1)) / #{$items});
+    max-width: calc(100% / #{$items} - (#{$mr} * (#{$items} - 1)) / #{$items});
+    &:nth-child(#{$items + 1}n) {
+        margin-right: #{$mr};
+    }
+    &:nth-child(#{$items}n) {
+        margin-right: 0;
+    }
+}
+
+@mixin picture($padding-top, $object-fit) {
+    padding-top: $padding-top * 1%;
+    overflow: hidden;
+    position: relative;
+    picture, img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: $object-fit;
+    }
+}
+
+@mixin m-laptop(){
+    @media (max-width: 1440px) {
+        @content
+    }
+}
+@mixin m-tablet-wide(){
+    @media (max-width: 1329px) {
+        @content
+    }
+}
+@mixin m-tablet(){
+    @media (max-width: 1023px) {
+        @content
+    }
+}
+@mixin m-phone(){
+    @media (max-width: 767px) {
+        @content
+    }
+}
+@mixin m-custom($maw){
+    @media (max-width: $maw) {
+        @content
+    }
+}
+@mixin m-custom-min($min){
+    @media (min-width: $min) {
+        @content
+    }
+}
+
+//медиазапрос IE
+@mixin explorer(){
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        @content
+    }
+}
+
+@mixin responsive-table($thead-title...) {
+
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+    }
+
+    @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+        /* Force table to not be like tables anymore */
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
+        
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr { 
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+            &:nth-child(1){
+                border: none;
+            }
+        }
+        
+        tr { 
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            &:nth-child(1){
+                border: none;
+            } 
+        }
+        
+        td { 
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee; 
+            position: relative;
+            padding-left: 150px;
+            height: inherit;
+            padding-top: 15px;
+            padding-bottom: 25px;
+            &:last-child{
+                padding-left: 0;
+                text-align: center;
+            }
+            
+        }
+        
+        td:before { 
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 14px;
+            left: 10px;
+            width: 100%;
+            max-width: 130px;
+            padding-right: 10px; 
+            font-weight: bold;
+        }
+
+        @for $i from 1 through length($thead-title) {
+          td:nth-of-type(#{$i}):before {
+            content: nth($thead-title, $i);
+          } 
+        }
+
+    }
+}
