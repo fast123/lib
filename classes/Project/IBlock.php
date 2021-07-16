@@ -1,5 +1,5 @@
 <?
-namespace FourPx;
+namespace Project;
 
 use \Bitrix\Main\Loader,
     \Bitrix\Main\Application,

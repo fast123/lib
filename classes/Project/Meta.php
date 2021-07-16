@@ -1,5 +1,5 @@
 <?
-namespace FourPx;
+namespace Project;
 
 use \Bitrix\Main\Application,
     \Bitrix\Main\Loader,
@@ -31,7 +31,7 @@ class Meta
         $result = false;
 
         $url = self::getCurrentUrl();
-        $IblockId = \FourPx\Helper::getIblockIdByCode('seo');
+        $IblockId = \Project\Helper::getIblockIdByCode('seo');
         $cacheTime = 3600;
         $cacheId = $url;
         $cache = Cache::createInstance();

@@ -1,9 +1,9 @@
 <?
-namespace FourPx\ImportXml\Task;
+namespace Project\ImportXml\Task;
 
 use Bitrix\Main\Web\HttpClient;
 use Bitrix\Main\Loader;
-use FourPx\ImportXml\Log;
+use Project\ImportXml\Log;
 
 
 /**
@@ -132,10 +132,10 @@ class UpdateStockIlsa extends Task
     protected function executeMethod()
     {
 
-        $stockIbId = \FourPx\IBlock::getIblockIdByCodes($this->stockIbCode);
+        $stockIbId = \Project\IBlock::getIblockIdByCodes($this->stockIbCode);
 
         # получение списка дилеров
-        /*$refDealers = \FourPx\HLBlock::getList('Dealers', [
+        /*$refDealers = \Progect\HLBlock::getList('Dealers', [
             'select' => ['UF_ID']
         ], 'UF_ID');*/
 
@@ -144,12 +144,12 @@ class UpdateStockIlsa extends Task
 
 
         Log::start('Обновление стока');
-        //$test = \FourPx\IBlock::isIblockExists( $this->stockIbCode );
+        //$test = \Progect\IBlock::isIblockExists( $this->stockIbCode );
         $keyField = 'unique_id';#TODO добавить в параметры конструктора id элемента в рамках фида
         $nameFiled = 'mark_id';#TODO добавить в параметры конструктора name элемента в рамках фида
 
-        if (\FourPx\IBlock::isIblockExists( $this->stockIbCode )) {
-            \FourPx\IBlock::fillIbWithData(
+        if (\Project\IBlock::isIblockExists( $this->stockIbCode )) {
+            \Project\IBlock::fillIbWithData(
                 $this->stockIbCode,
                 $this->feedDataArray,
                 $keyField,
@@ -159,10 +159,10 @@ class UpdateStockIlsa extends Task
                 ]
             );
         } else {
-            $IbProps = \FourPx\IBlock::prepareFieldsToCreateIBlockFromData($this->feedDataArray);
+            $IbProps = \Project\IBlock::prepareFieldsToCreateIBlockFromData($this->feedDataArray);
 
-            if (\FourPx\IBlock::createIblock($this->stockIbCode, $IbProps)) {
-                \FourPx\IBlock::fillIbWithData(
+            if (\Project\IBlock::createIblock($this->stockIbCode, $IbProps)) {
+                \Project\IBlock::fillIbWithData(
                     $this->stockIbCode,
                     $this->feedDataArray,
                     $keyField,

@@ -1,5 +1,5 @@
 <?
-namespace FourPx\Sale;
+namespace Project\Sale;
 
 use Bitrix\Sale\Helpers\Admin\OrderEdit;
 use Bitrix\Sale\Internals\StatusLangTable;

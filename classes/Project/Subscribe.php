@@ -1,5 +1,5 @@
 <?php
-namespace FourPx;
+namespace Project;
 
 use \Bitrix\Main\Loader;
 use \Bitrix\Highloadblock as HL;

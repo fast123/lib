@@ -1,8 +1,8 @@
 <?
-namespace FourPx\ImportXml\Task;
+namespace Project\ImportXml\Task;
 
 use Bitrix\Main\Web\HttpClient;
-use \FourPx\ImportXml\Log;
+use \Project\ImportXml\Log;
 
 
 /**

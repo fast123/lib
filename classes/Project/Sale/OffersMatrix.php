@@ -1,13 +1,13 @@
 <?php
 
-namespace FourPx\Sale;
+namespace Project\Sale;
 
 /**
  * класс подготавливает массивы, для работы
  * с торговыми предложениями в публичной части сайта
  *
  * Class OffersMatrix
- * @package FourPx
+ * @package Progect
  */
 class OffersMatrix {
 

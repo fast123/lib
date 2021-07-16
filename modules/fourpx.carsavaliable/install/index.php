@@ -91,7 +91,7 @@ class fourpx_carsavaliable extends CModule
         }
 
 
-        # Не затираем компоненты при переустановке модуля >
+        # пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ >
         if (is_dir($p = str_replace('\\','/',dirname(__DIR__)).'/install/components')) {
 
             $componentsDirFrom = $_SERVER["DOCUMENT_ROOT"]."/local/modules/".$this->MODULE_ID."/install/components";
@@ -115,7 +115,7 @@ class fourpx_carsavaliable extends CModule
 
             CopyDirFiles($componentsDirFrom, $componentsDirTo, false, true);
         }
-        # Не затираем компоненты при переустановке модуля <
+        # пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ <
 
         return true;
     }
@@ -141,7 +141,7 @@ class fourpx_carsavaliable extends CModule
 
         if ($this->isVersionD7()) {
             \Bitrix\Main\ModuleManager::registerModule($this->MODULE_ID);
-            \CAgent::AddAgent( "\\FourPx\\CarsAvaliable\\Import::startImport();", $this->MODULE_ID, "N", 3600);
+            \CAgent::AddAgent( "\\Progect\\CarsAvaliable\\Import::startImport();", $this->MODULE_ID, "N", 3600);
 
             $this->InstallDB();
             $this->InstallEvents();

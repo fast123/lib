@@ -1,5 +1,5 @@
 <?
-namespace FourPx\ImportXml;
+namespace Project\ImportXml;
 
 use \Bitrix\Main\Application,
     \Bitrix\Main\Diag\Debug;

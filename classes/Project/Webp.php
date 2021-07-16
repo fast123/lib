@@ -1,5 +1,5 @@
 <?
-namespace FourPx;
+namespace Project;
 /*
  * Клас для генерации изображения разрешнеия webp
  */

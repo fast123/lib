@@ -1,6 +1,6 @@
 <?php
 
-namespace FourPx\Sale;
+namespace Project\Sale;
 
 use \Bitrix\Sale\Order as COrder;
 

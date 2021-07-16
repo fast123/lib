@@ -1,6 +1,6 @@
 <?php
 
-namespace FourPx;
+namespace Project;
 use \Bitrix\Main\Application,
     \Bitrix\Main\Web\Cookie;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace FourPx;
+namespace Project;
 
 class Basket {
     const DF_SKU_IBLOCK_ID = '10';
