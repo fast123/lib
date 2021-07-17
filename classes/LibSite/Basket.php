@@ -1,6 +1,6 @@
 <?php
 
-namespace Project;
+namespace LibSite;
 
 class Basket {
     const DF_SKU_IBLOCK_ID = '10';

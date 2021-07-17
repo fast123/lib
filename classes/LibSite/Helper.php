@@ -1,6 +1,6 @@
 <?php
 
-namespace Project;
+namespace LibSite;
 use Bitrix\Main\Mail\Event;
 
 class Helper {

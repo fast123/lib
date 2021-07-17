@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Sale;
+namespace LibSite\Sale;
 
 /**
  * класс подготавливает массивы, для работы

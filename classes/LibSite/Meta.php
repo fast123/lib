@@ -1,5 +1,5 @@
 <?
-namespace Project;
+namespace LibSite;
 
 use \Bitrix\Main\Application,
     \Bitrix\Main\Loader,
@@ -31,7 +31,7 @@ class Meta
         $result = false;
 
         $url = self::getCurrentUrl();
-        $IblockId = \Project\Helper::getIblockIdByCode('seo');
+        $IblockId = \LibSite\Helper::getIblockIdByCode('seo');
         $cacheTime = 3600;
         $cacheId = $url;
         $cache = Cache::createInstance();

@@ -1,5 +1,5 @@
 <?
-namespace Project\ImportXml;
+namespace LibSite\ImportXml;
 
 use \Bitrix\Main\Application,
     \Bitrix\Main\Diag\Debug;

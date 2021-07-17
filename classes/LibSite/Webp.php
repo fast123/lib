@@ -1,5 +1,5 @@
 <?
-namespace Project;
+namespace LibSite;
 /*
  * Клас для генерации изображения разрешнеия webp
  */

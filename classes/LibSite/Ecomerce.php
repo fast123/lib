@@ -1,6 +1,6 @@
 <?php
 
-namespace Project;
+namespace LibSite;
 
 class Ecomerce {
     /*

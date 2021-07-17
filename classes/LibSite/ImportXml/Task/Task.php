@@ -1,8 +1,8 @@
 <?
-namespace Project\ImportXml\Task;
+namespace LibSite\ImportXml\Task;
 
 use Bitrix\Main\Web\HttpClient;
-use \Project\ImportXml\Log;
+use \LibSite\ImportXml\Log;
 
 
 /**

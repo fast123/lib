@@ -1,5 +1,5 @@
 <?php
-namespace Project;
+namespace LibSite;
 
 use \Bitrix\Main\Loader;
 use \Bitrix\Highloadblock as HL;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Project;
+namespace LibSite;
 
 /*
  * Класс для отправки данных в калкипер
@@ -16,7 +16,7 @@ class Callkeeper
     public static function sendCallkeeper($arPost){
         \Bitrix\Main\Loader::includeModule('iblock');
         $el = new \CIBlockElement;
-        $IBLOCK_ID = \Project\Helper::getIblockIdByCode('dealer');
+        $IBLOCK_ID = \LibSite\Helper::getIblockIdByCode('dealer');
         $res = \CIBlockElement::GetList(
             ['sort' => 'asc'],
             ['IBLOCK_ID' => $IBLOCK_ID, 'ACTIVE'=>'Y', 'ID'=>$arPost['dealer']],

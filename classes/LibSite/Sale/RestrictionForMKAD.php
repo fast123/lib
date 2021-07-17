@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Sale;
+namespace LibSite\Sale;
 
 use Bitrix\Sale\Internals\CollectableEntity;
 use Bitrix\Sale\Internals\PersonTypeTable;

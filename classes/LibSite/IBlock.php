@@ -1,5 +1,5 @@
 <?
-namespace Project;
+namespace LibSite;
 
 use \Bitrix\Main\Loader,
     \Bitrix\Main\Application,

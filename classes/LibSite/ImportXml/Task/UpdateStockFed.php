@@ -1,9 +1,9 @@
 <?
-namespace Project\ImportXml\Task;
+namespace LibSite\ImportXml\Task;
 
 use Bitrix\Main\Web\HttpClient;
 use Bitrix\Main\Loader;
-use Project\ImportXml\Log;
+use LibSite\ImportXml\Log;
 
 
 /**
@@ -58,7 +58,7 @@ class UpdateStockFed extends Task
     protected function executeMethod()
     {
 
-        $stockIbId = \Project\IBlock::getIblockIdByCodes($this->stockIbCode);
+        $stockIbId = \LibSite\IBlock::getIblockIdByCodes($this->stockIbCode);
 
         # получение списка дилеров
         /*$refDealers = \Progect\HLBlock::getList('Dealers', [
@@ -75,8 +75,8 @@ class UpdateStockFed extends Task
         $keyField = 'unique_id';#TODO добавить в параметры конструктора id элемента в рамках фида
         $nameFiled = 'mark_id';#TODO добавить в параметры конструктора name элемента в рамках фида
 
-        if (\Project\IBlock::isIblockExists( $this->stockIbCode )) {
-            \Project\IBlock::fillIbWithData(
+        if (\LibSite\IBlock::isIblockExists( $this->stockIbCode )) {
+            \LibSite\IBlock::fillIbWithData(
                 $this->stockIbCode,
                 $this->feedDataArray,
                 $keyField,
@@ -86,10 +86,10 @@ class UpdateStockFed extends Task
                 ]
             );
         } else {
-            $IbProps = \Project\IBlock::prepareFieldsToCreateIBlockFromData($this->feedDataArray);
+            $IbProps = \LibSite\IBlock::prepareFieldsToCreateIBlockFromData($this->feedDataArray);
 
-            if (\Project\IBlock::createIblock($this->stockIbCode, $IbProps)) {
-                \Project\IBlock::fillIbWithData(
+            if (\LibSite\IBlock::createIblock($this->stockIbCode, $IbProps)) {
+                \LibSite\IBlock::fillIbWithData(
                     $this->stockIbCode,
                     $this->feedDataArray,
                     $keyField,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Sale;
+namespace LibSite\Sale;
 
 use \Bitrix\Sale\Order as COrder;
 
