@@ -6,9 +6,21 @@ use \Bitrix\Main\Loader,
     \Bitrix\Highloadblock\HighloadBlockTable,
     \Bitrix\Iblock\IblockTable;
 
+/**
+ * Класс для работы с инфобблоком
+ *
+ * Class IBlock
+ * @package LibSite
+ */
 class IBlock
 {
 
+    /**
+     * проверка на существование инфоблока
+     *
+     * @param $ibCode символьный код инфоблока
+     * @return bool
+     */
     public static function isIblockExists($ibCode)
     {
         Loader::includeModule('iblock');
@@ -31,7 +43,16 @@ class IBlock
         return false;
     }
 
-    public static function createIblock($ibCode, $arProps)
+    /**
+     * Создание инфоблока
+     *
+     * @param $ibCode string символьный код инфоблока
+     * @param $arProps array свойства инфоблока формат $propCode=>$propType
+     *
+     * Поддерживаемые форматы $propType: N, S, F  и т.д
+     * @return string[]
+     */
+    public static function createIblock(string $ibCode, $arProps)
     {
         $result = [
             'status' => 'success',
@@ -50,12 +71,12 @@ class IBlock
                 'ru' => [
                     'NAME' => $ibCode,
                     'SECTION_NAME' => 'Раздел',
-                    'ELEMENT_NAME' => 'Автомобиль'
+                    'ELEMENT_NAME' => 'Элемент'
                 ],
                 'en' => [
                     'NAME' => $ibCode,
                     'SECTION_NAME' => 'Раздел',
-                    'ELEMENT_NAME' => 'Автомобиль'
+                    'ELEMENT_NAME' => 'Элемент'
                 ]
             ]
         ]);
@@ -72,7 +93,7 @@ class IBlock
         $ib = new \CIBlock;
         $ibId = $ib->Add([
             'ACTIVE' => 'Y',
-            'NAME' => 'Сток автомобилей',
+            'NAME' => $ibCode,
             'CODE' => $ibCode,
             'API_CODE' => $ibCode,
             'LIST_PAGE_URL' => '/catalog/',
@@ -102,15 +123,15 @@ class IBlock
                 'CODE' => $propCode,
                 'IBLOCK_ID' => $ibId,
                 'MULTIPLE' => 'N',
-                'PROPERTY_TYPE' => 'S'
+                'PROPERTY_TYPE' => $propType
             ];
 
-            if ($propType === 'number') {
+            /*if ($propType === 'number') {
                 $newProp['PROPERTY_TYPE'] = 'N';
             } elseif ($propType === 'text') {
                 $newProp['PROPERTY_TYPE'] = 'S';
                 $newProp['USER_TYPE'] = 'HTML';
-            }
+            }*/
 
             $ibpId = $ibp->Add( $newProp );
 
@@ -123,6 +144,10 @@ class IBlock
         return $result;
     }
 
+    /**
+     * @param $arData
+     * @return array
+     */
     public static function prepareFieldsToCreateIBlockFromData($arData)
     {
         # формирование карточки со всеми заполенными полями. для определенеия типов полей
@@ -166,6 +191,47 @@ class IBlock
         }
 
         return $arFields;
+    }
+
+    /**
+     * Обновление файлов в свойстве
+     *
+     * @param $idElement ид элемента инфоблока
+     * @param $arrIBFile array возвращаемы битриксом существующих фалов
+     * @param $arrFeedFile array внешнх ссылок на файл для загрузки
+     * @param $propertyCode string сивольный код свойства в котором хранятся файлы
+     * @return array
+     */
+    public static function  updateFilePropertyValues($idElement, $arrIBFile, $arrFeedFile, $propertyCode)
+    {
+        Loader::includeModule('iblock');
+        $arrDeleteFile = [];
+        $arrNotNeedUpdateFile = [];
+        $elementObject = new \CIBlockElement;
+        foreach ($arrIBFile['DESCRIPTION'] as $key=>$value) {
+            if (!in_array($value, $arrFeedFile)) {
+                $arrDeleteFile[$arrIBFile['PROPERTY_VALUE_ID'][$key]] = array('del' => 'Y', 'tmp_name' => '');
+            } else {
+                $arrNotNeedUpdateFile[] = $value;
+            }
+        }
+
+        if (!empty($arrDeleteFile)) {
+            $elementObject->SetPropertyValueCode($idElement, $propertyCode, $arrDeleteFile);
+        }
+
+        $fileValue = [];
+        if (is_array($arrFeedFile)) {
+            foreach ($arrFeedFile as $url) {
+                if (!in_array($url, $arrNotNeedUpdateFile))
+                    $fileValue[] = ['VALUE' => \CFile::MakeFileArray($url), 'DESCRIPTION' => $url];
+            }
+        } else {
+            if (!in_array($arrFeedFile, $arrNotNeedUpdateFile))
+                $fileValue[] = ['VALUE' => \CFile::MakeFileArray($arrFeedFile), 'DESCRIPTION' => $arrFeedFile];
+        }
+
+        return $fileValue;
     }
 
 
@@ -293,6 +359,12 @@ class IBlock
     }
 
 
+
+    //TODO сецифичные методы для иморта из фида. перенсти в другой класс
+
+
+
+
     /**
      *  Получение ID инфоблока по его коду
      *
@@ -326,39 +398,12 @@ class IBlock
         return $result;
     }
 
-
-    public static function  updateFilePropertyValues($idElement, $arrIBFile, $arrFeedFile, $propertyCode)
-    {
-        Loader::includeModule('iblock');
-        $arrDeleteFile = [];
-        $arrNotNeedUpdateFile = [];
-        $elementObject = new \CIBlockElement;
-        foreach ($arrIBFile['DESCRIPTION'] as $key=>$value) {
-            if (!in_array($value, $arrFeedFile)) {
-                $arrDeleteFile[$arrIBFile['PROPERTY_VALUE_ID'][$key]] = array('del' => 'Y', 'tmp_name' => '');
-            } else {
-                $arrNotNeedUpdateFile[] = $value;
-            }
-        }
-
-        if (!empty($arrDeleteFile)) {
-            $elementObject->SetPropertyValueCode($idElement, $propertyCode, $arrDeleteFile);
-        }
-
-        $fileValue = [];
-        if (is_array($arrFeedFile)) {
-            foreach ($arrFeedFile as $url) {
-                if (!in_array($url, $arrNotNeedUpdateFile))
-                    $fileValue[] = ['VALUE' => \CFile::MakeFileArray($url), 'DESCRIPTION' => $url];
-            }
-        } else {
-            if (!in_array($arrFeedFile, $arrNotNeedUpdateFile))
-                $fileValue[] = ['VALUE' => \CFile::MakeFileArray($arrFeedFile), 'DESCRIPTION' => $arrFeedFile];
-        }
-
-        return $fileValue;
-    }
-
+    /**
+     * Формирование масива для загрузки файлов в свойство инфоблока
+     *
+     * @param $arrUrl array ссылок на файлы
+     * @return array
+     */
     public static function getFilePropertyValue($arrUrl)
     {
         foreach ($arrUrl as $url) {
@@ -367,6 +412,11 @@ class IBlock
         return $fileValue;
     }
 
+    /**
+     *
+     * @param $IBLOCK_ID - id инфоблока
+     * @return array
+     */
     public static function getIBElements($IBLOCK_ID)
     {
         $rsIbElements = \CIBlockElement::GetList(

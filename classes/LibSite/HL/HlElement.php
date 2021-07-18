@@ -6,11 +6,20 @@ use Bitrix\Highloadblock\HighloadBlockTable as Hlblock,
     Bitrix\Main\Entity,
     Bitrix\Main\Application;
 
+/**
+ * Class HlElement - для работы с елементами хайлодов
+ * @package LibSite
+ */
 class HlElement
 {
     public $idHlbl;
     public $entity;
     public $entityDataClass;
+
+    /**
+     * HlElement constructor.
+     * @param $hlBlockName string Название хайлода
+     */
     public function __construct($hlBlockName)
     {
         //$this->idHlbl = $idHlbl;
@@ -19,6 +28,10 @@ class HlElement
         $this->entityDataClass = $this->getEntityDataClass();
     }
 
+    /**
+     * Получает сущность HL
+     * @return false
+     */
     private function getEntity(){
         if (empty($this->hlBlockName)) return false;
         $hlblock = Hlblock::getList(['filter' => ['NAME' => $this->hlBlockName] ])->fetch();
@@ -26,12 +39,21 @@ class HlElement
         return $entity;
     }
 
+    /**
+     * Получает класс HL
+     * @return false
+     *
+     */
     private function getEntityDataClass(){
         if (empty($this->entity)) return false;
         $entityDataClass = $this->entity->getDataClass();
         return $entityDataClass;
     }
 
+    /**
+     * Получает все поля включая списки с их значениями
+     * @return array|false
+     */
     public function getFields()
     {
         if (!$this->hlBlockName) {
@@ -91,6 +113,11 @@ class HlElement
         return false;
     }
 
+    /**
+     * Добавление в записи в HL + проверка на существование записи
+     * @param $arData
+     * @return false
+     */
     public function addUnique($arData){
         $result = false;
         # поиск дубля
