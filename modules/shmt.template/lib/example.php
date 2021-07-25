@@ -1,6 +1,6 @@
 <?php
 
-namespace Bex\D7dull;
+namespace Shmt\Template;
 
 use Bitrix\Main\Entity\DataManager;
 use Bitrix\Main\Entity\IntegerField;
@@ -10,11 +10,11 @@ use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
 
-class ExampleTable extends DataManager
+class  ExampleTable extends DataManager
 {
     public static function getTableName()
     {
-        return 'd7dull_example';
+        return 'module_template';
     }
 
     public static function getMap()
@@ -23,13 +23,13 @@ class ExampleTable extends DataManager
             new IntegerField('ID', array(
                 'autocomplete' => true,
                 'primary' => true,
-                'title' => Loc::getMessage('BEX_D7DULL_ID'),
+                'title' => Loc::getMessage('MODULE_TEMPLATE_ID'),
             )),
             new StringField('NAME', array(
                 'required' => true,
-                'title' => Loc::getMessage('BEX_D7DULL_NAME'),
+                'title' => Loc::getMessage('MODULE_TEMPLATE_NAME'),
                 'default_value' => function () {
-                    return Loc::getMessage('BEX_D7DULL_NAME_DEFAULT_VALUE');
+                    return Loc::getMessage('MODULE_TEMPLATE_NAME_DEFAULT_VALUE');
                 },
                 'validation' => function () {
                     return array(
@@ -39,7 +39,7 @@ class ExampleTable extends DataManager
             )),
             new StringField('IMAGE_SET', array(
                 'required' => false,
-                'title' => Loc::getMessage('BEX_D7DULL_IMAGE_SET'),
+                'title' => Loc::getMessage('MODULE_TEMPLATE_IMAGE_SET'),
                 'fetch_data_modification' => function () {
                     return array(
                         function ($value) {

@@ -5,7 +5,7 @@ use Bitrix\Main\Config\Option;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Text\HtmlFilter;
 
-defined('ADMIN_MODULE_NAME') or define('ADMIN_MODULE_NAME', 'bex.d7dull');
+defined('ADMIN_MODULE_NAME') or define('ADMIN_MODULE_NAME', 'shmt.template');
 
 if (!$USER->isAdmin()) {
     $APPLICATION->authForm('Nope');
@@ -68,7 +68,6 @@ $tabControl->begin();
                    />
         </td>
     </tr>
-
     <?php
     $tabControl->buttons();
     ?>
