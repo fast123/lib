@@ -47,8 +47,9 @@ class shmt_template extends CModule
     public function doInstall()
     {
         ModuleManager::registerModule($this->MODULE_ID);
-        $this->installDB();
-        $this->installEvents();
+        //$this->installDB();
+        //$this->installAgents();
+        //$this->installEvent();
         $this->installFiles();
     }
 
@@ -58,8 +59,9 @@ class shmt_template extends CModule
      */
     public function doUninstall()
     {
-        $this->uninstallDB();
-        $this->unInstallEvents();
+        //$this->uninstallDB();
+        //$this->unInstallAgents();
+        //$this->installEvent();
         $this->unInstallFiles();
         ModuleManager::unRegisterModule($this->MODULE_ID);
     }
@@ -104,7 +106,7 @@ class shmt_template extends CModule
      * Установка агентов
      * @return bool
      */
-    public function installEvents()
+    public function installAgents()
     {
         \CAgent::AddAgent( "\\Shmt\\Template\\Import::startImport();", $this->MODULE_ID, "N", 3600);
         return true;
@@ -114,7 +116,7 @@ class shmt_template extends CModule
      * Удаление всех агентов модуля агентов
      * @return bool
      */
-    public function unInstallEvents()
+    public function unInstallAgents()
     {
         \CAgent::RemoveModuleAgents($this->MODULE_ID);
         return true;
@@ -162,5 +164,28 @@ class shmt_template extends CModule
         }
 
         return true;
+    }
+
+    public function installEvent(){
+        $eventManager = EventManager::getInstance();
+        $eventManager->registerEventHandler(
+            'rest',
+            'OnRestServiceBuildDescription',
+            $this->MODULE_ID,
+            '\Shmt\Webservice\Simple',
+            'OnRestServiceBuildDescription'
+        );
+    }
+
+
+    public function unInstallEvent(){
+        $eventManager = EventManager::getInstance();
+        $eventManager->unRegisterEventHandler(
+            'rest',
+            'OnRestServiceBuildDescription',
+            $this->MODULE_ID,
+            '\Shmt\Webservice\Simple',
+            'OnRestServiceBuildDescription'
+        );
     }
 }
