@@ -1,0 +1,6 @@
+<?php
+
+$MESS['MODULE_DELIVERY_ID'] = 'ID';
+$MESS['MODULE_DELIVERY_NAME'] = 'Название';
+$MESS['MODULE_DELIVERY_NAME_DEFAULT_VALUE'] = 'Безымянный элемент';
+$MESS['MODULE_DELIVERY_IMAGE_SET'] = 'Изображения';
