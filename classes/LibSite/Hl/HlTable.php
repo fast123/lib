@@ -1,5 +1,5 @@
 <?
-namespace LibSite;
+namespace LibSite\Hl;
 
 use \Bitrix\Main\Loader,
     \Bitrix\Main\Application,

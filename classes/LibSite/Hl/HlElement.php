@@ -1,6 +1,6 @@
 <?php
 
-namespace LibSite;
+namespace LibSite\Hl;
 
 use Bitrix\Highloadblock\HighloadBlockTable as Hlblock,
     Bitrix\Main\Entity,
