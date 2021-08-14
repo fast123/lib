@@ -8,5 +8,7 @@
 
 Веб хуки можно добавить через админку по адресу /bitrix/admin/shmt_webservice.php
 
-В lib/simple.php пример класса для созания сетодов
+В lib/simple.php пример класса для созания методов
+
+example_request.php присер вызовам метода на клиенте
 
