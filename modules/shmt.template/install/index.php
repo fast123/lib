@@ -61,7 +61,7 @@ class shmt_template extends CModule
     {
         //$this->uninstallDB();
         //$this->unInstallAgents();
-        //$this->installEvent();
+        //$this->unInstallEvent();
         $this->unInstallFiles();
         ModuleManager::unRegisterModule($this->MODULE_ID);
     }
