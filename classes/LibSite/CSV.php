@@ -19,8 +19,9 @@ class CSV {
         if (file_exists($csv_file)) { //Если файл существует
             $this->_csv_file = $csv_file; //Записываем путь к файлу в переменную
         }
-        else { //Если файл не найден то вызываем исключение
-            throw new Exception("Файл ".$csv_file." не найден");
+        else { //Если файл не найден создаем
+            file_put_contents($csv_file);
+            $this->_csv_file = $csv_file;
         }
     }
 
@@ -40,8 +41,8 @@ class CSV {
      * Метод для чтения из csv-файла. Возвращает массив с данными из csv
      * @return array;
      */
-    public function getCSV() {
-        $handle = fopen($this->_csv_file, "r"); //Открываем csv для чтения
+    public static function getCSV($csv_file, $context) {
+        $handle = fopen($csv_file, "r", false, $context); //Открываем csv для чтения
 
         $array_line_full = array(); //Массив будет хранить данные из csv
         //Проходим весь csv-файл, и читаем построчно. 3-ий параметр разделитель поля
