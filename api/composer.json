@@ -1,0 +1,20 @@
+{
+    "name": "libsite/api_example",
+    "description": "Php api example",
+    "authors": [
+        {
+            "name": "Aleksandr Trofimov"
+        }
+    ],
+    "require": {
+        "pecee/simple-router": "*",
+        "lcobucci/jwt": "^3.4",
+        "ext-json": "*",
+        "vlucas/phpdotenv": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": ""
+        }
+    }
+}

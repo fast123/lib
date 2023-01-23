@@ -1,0 +1,50 @@
+{
+  "paths" : {
+    "/api/v1/sertificate/update/" : {
+      "post" : {
+        "tags": [
+          "sertificate"
+        ],
+        "description" : "Изменение подарочного сертификата",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "COUPON" : {
+                    "type" : "string",
+                    "description" : "SL-FSSD-SSDSD"
+                  },
+                  "ACTIVE" : {
+                    "type" : "string",
+                    "description" : "N"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://aravia.loc"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://aravia.loc"
+      } ]
+    }
+  }
+}

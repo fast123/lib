@@ -1,0 +1,113 @@
+{
+  "paths": {
+    "/api/v1/sertificate/": {
+      "get": {
+        "tags": [
+          "sertificate"
+        ],
+        "description": "Получение списка подарочных сертификатов",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "query",
+            "description": "ID сертификата на сатйе",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "561561616"
+          },
+          {
+            "name": "DISCOUNT_ID",
+            "in": "query",
+            "description": "ID скидки",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "561561616"
+          },
+          {
+            "name": "COUPON",
+            "in": "query",
+            "description": "Код сертификата",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "SL-X3VUB-JYGEGA9"
+          },
+          {
+            "name": "ACTIVE",
+            "in": "query",
+            "description": "Признак акивности. По нему можно определить использовали уже сертификат или нет",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Y или N"
+          },
+          {
+            "name": "TIMESTAMP_X",
+            "in": "query",
+            "description": "Дата последнего измменения. Можно укзывать и без времени",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "12.05.2021 14:50:41 или 12.05.2021"
+          },
+          {
+            "name": "TIMESTAMP_X_UNIX",
+            "in": "query",
+            "description": "Дата последнего измменения переведенное в UNIX",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1620820241"
+          },
+          {
+            "name": "PRICE",
+            "in": "query",
+            "description": "Наминал сертификата",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "int"
+            },
+            "example": 500
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Список с результатами в формате json. Выводит по 1000 элементов реализована постраничная выдача"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://aravia.ru"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "https://aravia.ru"
+        }
+      ]
+    }
+  }
+}
